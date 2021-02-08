@@ -1,0 +1,29 @@
+int main(void)
+{
+	cli();
+	ADC_init();
+	DDRB |= (1<<DDB5);
+	USART_init();
+	PORTB |= (1<<PORTB5);
+	
+	sei();
+	
+	
+	while (1)
+	{
+		float adcV = ADC_read(0);
+		dtostrf(adcV,10,0,String);
+		USART_putstring(String);
+
+		if (adcV < 300)
+		{
+			PORTB |= (1<<PORTB5);
+		}
+		else
+		{
+			PORTB &=~ (1<<PORTB5);
+		}
+		
+	}
+	return 0;
+} 

@@ -16,29 +16,30 @@
 #include <avr/interrupt.h>
 #include "USART/USART.h"
 #include "ADC/ADC.h"
+#include "USS/USS.h"
 #include <stdlib.h>
 
-char String[20] = "HOla";
+char String[7] = "HOla";
 
 
-int main(void)
-{
+uint32_t distance;
+
+int main(){
 	cli();
-	ADC_init();
-	DDRB |= (1<<DDB5);
+	
 	USART_init();
+	HCSR04_Init();
+	DDRB |= (1<<DDB5);
 	PORTB |= (1<<PORTB5);
 	
 	sei();
-	
-	
-	while (1)
-	{
-		float adcV = ADC_read(0);
-		dtostrf(adcV,10,0,String);
-		USART_putstring(String);
 
-		if (adcV < 300)
+	while (1){
+		uint32_t distance = getDistance();
+		//dtostrf(distance,10,0,String);
+		
+		USART_putstring(String);
+		if (distance < 3)
 		{
 			PORTB |= (1<<PORTB5);
 		}
