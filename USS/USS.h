@@ -1,7 +1,7 @@
 #ifndef USS_H_
 #define USS_H_
 
-    void HCSR04_Init(void);
+    void Ultrasonico_init(void);
     uint32_t getDistance(void);
 
 #endif //USS_H_

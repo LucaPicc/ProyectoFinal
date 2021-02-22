@@ -1,8 +1,7 @@
 /*
  * ADC.c
- *
- * Created: 23/12/2020 03:00:31
- *  Author: Luca
+ * Author: Luca Piccinini
+ * Descripción: Libreria para la lectura de puertos ADC del atemega 328p
  */ 
 
 //#define F_CPU  16000000U

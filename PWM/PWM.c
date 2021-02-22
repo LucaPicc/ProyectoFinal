@@ -1,8 +1,7 @@
 /*
  * PWM.c
- *
- *  Created: 22/12/2020 20:29:54
- *  Author: Luca
+ * Author: Luca Piccinini
+ * Descripción: Libreria para la generación de pulsos PWM en atemega328p
  */ 
 
 #include "PWM.h"

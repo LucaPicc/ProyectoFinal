@@ -1,8 +1,6 @@
 /*
  * USART.h
- *
- * Created: 22/12/2020 21:00:17
- *  Author: Luca
+ * Autor: Luca Piccinini
  */ 
 
 

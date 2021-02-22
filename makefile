@@ -1,7 +1,14 @@
+#/
+# Makefile
+# Author: Luca Piccinini
+# Descripción: Este es un makefile ,construido para la generación de proyectos para micros AVR ya que utilizamos el compilador avr-g++, con la intención de
+#utilizar la utilidad de linux "make".
+#/
+
 
 PROJECT_NAME	= PROYECTOFINAL
 
-##Información del micro en cuestion
+## Información del micro en cuestion
 
 DEVICE 			= atmega328p
 PROGRAMMER 		= arduino 		#Esto es solo porque tenemos caragado el bootloader de la placa arduino
@@ -9,13 +16,14 @@ PORT 			= /dev/ttyUSB0	#Esto se debe verificar en cada caso en nuestro caso corr
 BAUD 			= 115200 		#Baudios del puerto serial para nuestro arduino son 115200
 F_CLOCK 		= 16000000
 
-##Carpetas incluidas en el proyecto
+## Carpetas incluidas en el proyecto
 
 INCLUDEPATHS 	= -I ./
 INCLUDEPATHS 	+= -I ./ADC/
 INCLUDEPATHS 	+= -I ./USART/
 INCLUDEPATHS 	+= -I ./PWM/
 INCLUDEPATHS 	+= -I ./USS/
+INCLUDEPATHS 	+= -I ./MOTOR/
 
 ## Objetos que seran necesarios compilar para la compilación
 
@@ -24,6 +32,7 @@ OBJECT_FILE 	+= ./ADC/ADC.o
 OBJECT_FILE 	+= ./PWM/PWM.o
 OBJECT_FILE 	+= ./USART/USART.o
 OBJECT_FILE 	+= ./USS/USS.o
+OBJECT_FILE 	+= ./MOTOR/MOTOR.o
 #OBJECT_FILE	 += "ARCHIVO CON RUTA ABSOLUTA"
 
 ## Configuración de compilador
@@ -38,7 +47,7 @@ COMPILE 		= $(COMPILER) $(CFLAGS) -Wall -Os -DF_CPU=$(F_CLOCK) -mmcu=$(DEVICE) $
 
 ## Procesos a realizar por "make" a la hora de ejecutarse
 
-default: compile upload clean
+default: compile
 
 # "compile" se encargara de la generación del codigo maquina compatible con el micro
 
@@ -63,6 +72,10 @@ upload:
 # "clean" eliminara todos los archivos que queden del proceso de compilación
 
 clean:
+	rm $(OBJECT_FILE)
+	rm *.elf
+
+clean-all:
 	rm $(OBJECT_FILE)
 	rm *.elf
 	rm *.hex
