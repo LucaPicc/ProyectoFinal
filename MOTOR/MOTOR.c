@@ -48,6 +48,7 @@ int MOTORES_cont(int state, int freq, int duty)
         /*  El metodo que usamos para apagar ambos motores es 
          * desactivando la entrada de clock
         */
+        
         TCCR1B &=~ (1<<CS10);
         TCCR1B &=~ (1<<CS11);
         TCCR1B &=~ (1<<CS12);

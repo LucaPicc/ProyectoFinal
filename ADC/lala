@@ -27,3 +27,19 @@ int main(void)
 	}
 	return 0;
 } 
+//uint32_t distance = getDistance();
+		float adcV = ADC_read(0);
+		dtostrf(adcV,10,0,String);
+		USART_putstring(String);
+		
+		if (adcV > 400 )
+		{
+			PORTB |= (1<<PORTB5);
+			MOTOR_right_cont(1,100,100);
+		}
+		else
+		{
+			PORTB &=~ (1<<PORTB5);
+			MOTOR_right_cont(2,100,100);
+		}
+		

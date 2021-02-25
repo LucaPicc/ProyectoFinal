@@ -21,18 +21,20 @@ F_CLOCK 		= 16000000
 INCLUDEPATHS 	= -I ./
 INCLUDEPATHS 	+= -I ./ADC/
 INCLUDEPATHS 	+= -I ./USART/
-INCLUDEPATHS 	+= -I ./PWM/
+#INCLUDEPATHS 	+= -I ./PWM/
 INCLUDEPATHS 	+= -I ./USS/
 INCLUDEPATHS 	+= -I ./MOTOR/
+#INCLUDEPATHS 	+= -I ./SU/
 
 ## Objetos que seran necesarios compilar para la compilación
 
 OBJECT_FILE 	= main.o
 OBJECT_FILE 	+= ./ADC/ADC.o
-OBJECT_FILE 	+= ./PWM/PWM.o
+#OBJECT_FILE 	+= ./PWM/PWM.o
 OBJECT_FILE 	+= ./USART/USART.o
 OBJECT_FILE 	+= ./USS/USS.o
 OBJECT_FILE 	+= ./MOTOR/MOTOR.o
+#OBJECT_FILE 	+= ./SU/SU.o
 #OBJECT_FILE	 += "ARCHIVO CON RUTA ABSOLUTA"
 
 ## Configuración de compilador

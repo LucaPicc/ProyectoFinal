@@ -1,7 +1,7 @@
 /*
  * PWM.c
  * Author: Luca Piccinini
- * Descripción: Libreria para la generación de pulsos PWM en atemega328p
+ * Descripción: Libreria para la generación de pulsos PWM en atemega328p(Reemplazada por MOTOR)
  */ 
 
 #include "PWM.h"
